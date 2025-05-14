@@ -78,3 +78,7 @@ Contact and social media links
 
 6. Tools & Technologies
 Frontend: HTML, CSS, JavaScript
+
+
+LINK TO THE WEBSITE
+ https://kubeibi.github.io/Bliss-in-beauty-nail-palour/
