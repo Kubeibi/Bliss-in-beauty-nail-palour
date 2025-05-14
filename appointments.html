@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management | Glamour Nail Parlour & Salon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f5f0;
+            color: #4d3b1d;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: #6b4c29;
+            padding: 20px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #4d3b1d;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .page-title {
+            color: #6b4c29;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            position: relative;
+        }
+        
+        .page-title:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #ffb6c1;
+            margin: 15px auto;
+        }
+        
+        /* Filters */
+        .filters {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(107, 76, 41, 0.1);
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #6b4c29;
+        }
+        
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d4b483;
+            border-radius: 5px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        /* Appointments Table */
+        .appointments-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(107, 76, 41, 0.1);
+        }
+        
+        .appointments-table th {
+            background-color: #6b4c29;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+        
+        .appointments-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #f0e6d6;
+        }
+        
+        .appointments-table tr:last-child td {
+            border-bottom: none;
+        }
+        
+        .appointments-table tr:hover {
+            background-color: #fff9f0;
+        }
+        
+        .status-pending {
+            color: #e67e22;
+            font-weight: 600;
+        }
+        
+        .status-confirmed {
+            color: #27ae60;
+            font-weight: 600;
+        }
+        
+        .status-cancelled {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .action-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s;
+        }
+        
+        .confirm-btn {
+            background-color: #d5f5e3;
+            color: #27ae60;
+            margin-right: 5px;
+        }
+        
+        .cancel-btn {
+            background-color: #fadbd8;
+            color: #e74c3c;
+        }
+        
+        .no-appointments {
+            text-align: center;
+            padding: 40px;
+            color: #6b4c29;
+            font-style: italic;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .appointments-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BLISS IN BEAUTY</h1>
+        <nav>
+            <ul>
+                <li><a href="NAAIILLSS.html">Home</a></li>
+                <li><a href="Nail palour.html">Services</a></li>
+                <li><a href="appointments.html" class="active">Appointments</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h1 class="page-title">Appointment Management</h1>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="filter-date">Date</label>
+                <input type="date" id="filter-date">
+            </div>
+            <div class="filter-group">
+                <label for="filter-service">Service</label>
+                <select id="filter-service">
+                    <option value="">All Services</option>
+                    <option value="manicure">Manicure</option>
+                    <option value="pedicure">Pedicure</option>
+                    <option value="haircut">Haircut</option>
+                    <option value="coloring">Coloring</option>
+                    <option value="facial">Facial</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filter-status">Status</label>
+                <select id="filter-status">
+                    <option value="">All Statuses</option>
+                    <option value="pending">Pending</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+            </div>
+        </div>
+        
+        <table class="appointments-table">
+            <thead>
+                <tr>
+                    <th>Client</th>
+                    <th>Service</th>
+                    <th>Date & Time</th>
+                    <th>Contact</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="appointments-list">
+                <!-- Appointments will be inserted here by JavaScript -->
+            </tbody>
+        </table>
+        
+        <div id="no-appointments" class="no-appointments" style="display: none;">
+            <p>No appointments found matching your criteria.</p>
+        </div>
+    </div>
+
+    <script>
+        // Sample appointment data (in a real app, this would come from a database)
+        const appointments = [
+            {
+                id: 1,
+                clientName: "Sarah Johnson",
+                service: "Gel Manicure",
+                serviceType: "manicure",
+                date: "2023-11-15",
+                time: "10:00",
+                contact: "sarah@email.com | (555) 123-4567",
+                status: "confirmed"
+            },
+            {
+                id: 2,
+                clientName: "Michael Chen",
+                service: "Spa Pedicure",
+                serviceType: "pedicure",
+                date: "2023-11-15",
+                time: "14:30",
+                contact: "michael@email.com | (555) 987-6543",
+                status: "pending"
+            },
+            {
+                id: 3,
+                clientName: "Emma Williams",
+                service: "Balayage Highlights",
+                serviceType: "coloring",
+                date: "2023-11-16",
+                time: "11:00",
+                contact: "emma@email.com | (555) 456-7890",
+                status: "confirmed"
+            },
+            {
+                id: 4,
+                clientName: "David Kim",
+                service: "Men's Haircut",
+                serviceType: "haircut",
+                date: "2023-11-17",
+                time: "09:30",
+                contact: "david@email.com | (555) 789-0123",
+                status: "cancelled"
+            },
+            {
+                id: 5,
+                clientName: "Olivia Martinez",
+                service: "Luxury Facial",
+                serviceType: "facial",
+                date: "2023-11-18",
+                time: "13:00",
+                contact: "olivia@email.com | (555) 234-5678",
+                status: "pending"
+            }
+        ];
+
+        // Display appointments
+        function displayAppointments(filteredAppointments = appointments) {
+            const appointmentsList = document.getElementById('appointments-list');
+            const noAppointmentsMsg = document.getElementById('no-appointments');
+            
+            appointmentsList.innerHTML = '';
+            
+            if (filteredAppointments.length === 0) {
+                noAppointmentsMsg.style.display = 'block';
+                return;
+            } else {
+                noAppointmentsMsg.style.display = 'none';
+            }
+            
+            filteredAppointments.forEach(appointment => {
+                const row = document.createElement('tr');
+                
+                // Format date for display
+                const displayDate = new Date(appointment.date).toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+                
+                // Status class
+                const statusClass = `status-${appointment.status}`;
+                
+                row.innerHTML = `
+                    <td>${appointment.clientName}</td>
+                    <td>${appointment.service}</td>
+                    <td>${displayDate} at ${appointment.time}</td>
+                    <td>${appointment.contact}</td>
+                    <td class="${statusClass}">${appointment.status.charAt(0).toUpperCase() + appointment.status.slice(1)}</td>
+                    <td>
+                        ${appointment.status !== 'confirmed' ? 
+                          `<button class="action-btn confirm-btn" data-id="${appointment.id}">Confirm</button>` : ''}
+                        ${appointment.status !== 'cancelled' ? 
+                          `<button class="action-btn cancel-btn" data-id="${appointment.id}">Cancel</button>` : ''}
+                    </td>
+                `;
+                
+                appointmentsList.appendChild(row);
+            });
+            
+            // Add event listeners to action buttons
+            document.querySelectorAll('.confirm-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    confirmAppointment(id);
+                });
+            });
+            
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    cancelAppointment(id);
+                });
+            });
+        }
+        
+        // Filter appointments
+        function filterAppointments() {
+            const dateFilter = document.getElementById('filter-date').value;
+            const serviceFilter = document.getElementById('filter-service').value;
+            const statusFilter = document.getElementById('filter-status').value;
+            
+            const filtered = appointments.filter(appointment => {
+                const matchesDate = !dateFilter || appointment.date === dateFilter;
+                const matchesService = !serviceFilter || appointment.serviceType === serviceFilter;
+                const matchesStatus = !statusFilter || appointment.status === statusFilter;
+                
+                return matchesDate && matchesService && matchesStatus;
+            });
+            
+            displayAppointments(filtered);
+        }
+        
+        // Update appointment status
+        function confirmAppointment(id) {
+            const appointment = appointments.find(a => a.id === id);
+            if (appointment) {
+                appointment.status = 'confirmed';
+                filterAppointments();
+                // In a real app, you would save to database here
+                alert(`Appointment #${id} confirmed!`);
+            }
+        }
+        
+        function cancelAppointment(id) {
+            const appointment = appointments.find(a => a.id === id);
+            if (appointment) {
+                appointment.status = 'cancelled';
+                filterAppointments();
+                // In a real app, you would save to database here
+                alert(`Appointment #${id} cancelled.`);
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            displayAppointments();
+            
+            // Set up filter event listeners
+            document.getElementById('filter-date').addEventListener('change', filterAppointments);
+            document.getElementById('filter-service').addEventListener('change', filterAppointments);
+            document.getElementById('filter-status').addEventListener('change', filterAppointments);
+        });
+    </script>
+</body>
+</html>

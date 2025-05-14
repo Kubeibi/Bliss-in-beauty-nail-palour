@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glamour Nail Parlour & Salon - Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-stretch: expanded;
+            margin: 0;
+            font-size: medium;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f5f0;
+            color: #4d3b1d;
+        }
+        nav ul {
+            overflow: hidden;
+            position: -webkit-sticky;
+            position: sticky;
+            background-color: #6b4c29;
+            display: inline;
+            list-style: none;
+            padding: 25px 5px;
+            border-radius: 20px;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 5px 15px;
+        }
+        nav ul li a {
+            display: inline;
+            border-radius: 15px;
+            text-align: center;
+            padding: 10px 12px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s ease-in-out;
+        }
+        li a:hover {
+            background-color: #4d3b1d;
+        }
+        .service-section {
+            padding: 40px 20px;
+        }
+        .service-category {
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+        .service-category h2 {
+            color: #6b4c29;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffb6c1;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(107, 76, 41, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            color: #6b4c29;
+            margin-top: 0;
+        }
+        .service-card p {
+            color: #6b4c29;
+            margin-bottom: 20px;
+        }
+        .price {
+            font-weight: bold;
+            color: #8b5a2b;
+            font-size: 20px;
+        }
+        .duration {
+            font-style: italic;
+            color: #a08679;
+        }
+        #booking-form {
+            background: rgba(107, 76, 41, 0.9);
+            padding: 50px 20px;
+            color: white;
+            margin: 40px auto;
+            max-width: 800px;
+            border-radius: 20px;
+        }
+        #booking-form h2 {
+            margin-top: 0;
+            font-size: 32px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+        button[type="submit"] {
+            background: #ffb6c1;
+            color: #6b4c29;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            margin-top: 20px;
+        }
+        button[type="submit"]:hover {
+            background: #e6a2ad;
+        }
+        footer {
+            background: #6b4c29;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        #footer-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            text-align: left;
+        }
+        .footer-column {
+            max-width: 200px;
+            margin-bottom: 20px;
+        }
+        .footer-column h3 {
+            border-left: 2px solid tan;
+            padding-left: 10px;
+        }
+        .footer-column p, .footer-column a {
+            font-stretch: narrower;
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+        .confirmation {
+            display: none;
+            background: rgba(255, 182, 193, 0.9);
+            color: #6b4c29;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BLISS IN BEAUTY</h1>
+        <nav>
+            <ul>
+                <li><a href="NAAIILLSS.html">Home</a></li>
+                <li><a href="Nail parlour.html" class="active">Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="appointments.html">Appointments</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="service-section">
+        <h2>Our Premium Services</h2>
+        <p>Indulge in our luxurious treatments designed to pamper and beautify</p>
+
+        <div class="service-category">
+            <h2>Nail Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Classic Manicure</h3>
+                    <p>Basic nail care with cuticle treatment, shaping, and polish</p>
+                    <p class="price">$35</p>
+                    <p class="duration">45 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Gel Polish Manicure</h3>
+                    <p>Long-lasting gel polish that stays chip-free for weeks</p>
+                    <p class="price">$50</p>
+                    <p class="duration">60 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Spa Pedicure</h3>
+                    <p>Relaxing foot soak, exfoliation, massage, and polish</p>
+                    <p class="price">$55</p>
+                    <p class="duration">75 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Nail Art Design</h3>
+                    <p>Custom nail art to express your unique style</p>
+                    <p class="price">From $15</p>
+                    <p class="duration">Varies</p>
+                </div>
+                <div class="service-card">
+                    <h3>Acrylic Full Set</h3>
+                    <p>Create length and strength with acrylic extensions</p>
+                    <p class="price">$65</p>
+                    <p class="duration">90 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Dip Powder Manicure</h3>
+                    <p>Durable powder color with natural-looking finish</p>
+                    <p class="price">$60</p>
+                    <p class="duration">75 minutes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <h2>Hair Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Blowout & Style</h3>
+                    <p>Professional wash, blow dry, and styling</p>
+                    <p class="price">$45</p>
+                    <p class="duration">45 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Haircut & Style</h3>
+                    <p>Custom haircut with wash and blow dry</p>
+                    <p class="price">$65</p>
+                    <p class="duration">60 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Full Color</h3>
+                    <p>Complete hair color service with conditioning</p>
+                    <p class="price">$85+</p>
+                    <p class="duration">2 hours</p>
+                </div>
+                <div class="service-card">
+                    <h3>Balayage Highlights</h3>
+                    <p>Hand-painted highlights for natural sun-kissed look</p>
+                    <p class="price">$120+</p>
+                    <p class="duration">3 hours</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-category">
+            <h2>Spa Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Express Facial</h3>
+                    <p>Quick cleanse, exfoliation, and hydration</p>
+                    <p class="price">$60</p>
+                    <p class="duration">30 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Hot Stone Massage</h3>
+                    <p>Relaxing massage with warm stones to melt tension</p>
+                    <p class="price">$90</p>
+                    <p class="duration">60 minutes</p>
+                </div>
+                <div class="service-card">
+                    <h3>Waxing Services</h3>
+                    <p>Professional waxing for smooth, hair-free skin</p>
+                    <p class="price">From $25</p>
+                    <p class="duration">Varies</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="booking-form">
+        <h2>Book Your Appointment</h2>
+        <p>Fill out the form below to reserve your pampering session</p>
+        
+        <form id="appointment-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="first-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="last-name" required>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <optgroup label="Nail Services">
+                        <option value="classic-manicure">Classic Manicure ($35)</option>
+                        <option value="gel-manicure">Gel Polish Manicure ($50)</option>
+                        <option value="spa-pedicure">Spa Pedicure ($55)</option>
+                        <option value="nail-art">Nail Art Design (From $15)</option>
+                        <option value="acrylic-set">Acrylic Full Set ($65)</option>
+                        <option value="dip-powder">Dip Powder Manicure ($60)</option>
+                    </optgroup>
+                    <optgroup label="Hair Services">
+                        <option value="blowout">Blowout & Style ($45)</option>
+                        <option value="haircut">Haircut & Style ($65)</option>
+                        <option value="full-color">Full Color ($85+)</option>
+                        <option value="balayage">Balayage Highlights ($120+)</option>
+                    </optgroup>
+                    <optgroup label="Spa Services">
+                        <option value="facial">Express Facial ($60)</option>
+                        <option value="hot-stone">Hot Stone Massage ($90)</option>
+                        <option value="waxing">Waxing Services (From $25)</option>
+                    </optgroup>
+                </select>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Preferred Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Preferred Time</label>
+                    <input type="time" id="time" name="time" min="09:00" max="18:00" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">Special Requests</label>
+                <textarea id="notes" name="notes" rows="3"></textarea>
+            </div>
+            
+            <button type="submit">Book Appointment</button>
+        </form>
+        
+        <div id="confirmation-message" class="confirmation">
+            <h3>Thank you for your booking!</h3>
+            <p>We've received your appointment request and will confirm shortly.</p>
+            <p>A confirmation email has been sent to <span id="confirm-email"></span>.</p>
+        </div>
+    </section>
+
+    <footer>
+        <section id="footer-info">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: contact@glamournails.com</p>
+                <p>Phone: +123 456 7890</p>
+                <p>Location: 123 Beauty Street, NY</p>
+            </div>
+            <div class="footer-column">
+                <h3>Hours</h3>
+                <p>Monday-Friday: 9am-7pm</p>
+                <p>Saturday: 9am-5pm</p>
+                <p>Sunday: 10am-4pm</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <p><a href="services.html">Services</a></p>
+                <p><a href="gallery.html">Gallery</a></p>
+                <p><a href="book.html">Appointments</a></p>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">Facebook</a></p>
+                <p><a href="#">Pinterest</a></p>
+            </div>
+        </section>
+        <p>&copy; 2025 Glamour Nail Parlour & Salon. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Simple booking system that stores data in localStorage
+        document.getElementById('appointment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const firstName = document.getElementById('first-name').value;
+            const lastName = document.getElementById('last-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('date').value;
+            const time = document.getElementById('time').value;
+            const notes = document.getElementById('notes').value;
+            
+            // Create booking object
+            const booking = {
+                firstName,
+                lastName,
+                email,
+                phone,
+                service,
+                date,
+                time,
+                notes,
+                timestamp: new Date().toISOString()
+            };
+            
+            // Get existing bookings or create empty array
+            let bookings = JSON.parse(localStorage.getItem('bookings')) || [];
+            
+            // Add new booking
+            bookings.push(booking);
+            
+            // Save back to localStorage
+            localStorage.setItem('bookings', JSON.stringify(bookings));
+            
+            // Show confirmation
+            document.getElementById('confirm-email').textContent = email;
+            document.getElementById('confirmation-message').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to confirmation
+            document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth' });
+            
+            // For demo purposes, log all bookings to console
+            console.log('All bookings:', bookings);
+        });
+
+        // Set minimum date to today
+        document.getElementById('date').min = new Date().toISOString().split('T')[0];
+    </script>
+</body>
+</html>
